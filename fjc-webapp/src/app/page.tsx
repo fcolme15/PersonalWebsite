@@ -8,9 +8,9 @@ export default function Home() {
   return (
     <div className="font-[family-name:var(--font-geist-sans)]">
       <Nav/>
-      <div className="min-h-100"/>
       <About/>
       <Contact/>
+      
       <Footer/>
       <ButtonGradient/>
     </div>
