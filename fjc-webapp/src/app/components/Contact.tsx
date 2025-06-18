@@ -1,8 +1,6 @@
 'use client';
 
 import React, { useState, useRef } from 'react';
-import Link from 'next/link';
-
 const Contact = () => {
   const [message, setMessage] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -186,6 +184,7 @@ const Contact = () => {
             
             {/* Geometric Box */}
             <div className="absolute top-6 lg:top-10 right-8 lg:right-12 w-8 h-8 lg:w-12 lg:h-12 bg-n-4 rotate-45"></div>
+            <div className="absolute top-7 lg:top-11.5 right-9 lg:right-13 w-6 h-6 lg:w-9.5 lg:h-9.5 bg-n-1 rotate-60"></div>
           </div>
         </div>
       </div>
