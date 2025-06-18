@@ -1,6 +1,8 @@
 'use client';
 
 import React, { useState, useRef } from 'react';
+
+
 const Contact = () => {
   const [message, setMessage] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -53,7 +55,7 @@ const Contact = () => {
   return (
     <>
     <div></div>
-    <section className="contact pb-0 bg-n-5 pb-20 pt-65 md:pt-80 lg:pt-30" id="contact">
+    <section className="contact pb-0 bg-n-5 pb-20 pt-65 md:pt-80 lg:pt-30 scroll-mt-18 lg:scroll-mt-21 overflow-hidden" id="contact">
       <div className="container mx-auto px-4">
         
         <div className="relative max-w-6xl mx-auto">
@@ -169,17 +171,13 @@ const Contact = () => {
           </div>
 
           {/* Contact Data Section - Overlay */}
-          <div className="absolute -top-60 left-4 sm:left-6 lg:-top-15 lg:left-15 w-80 sm:w-96 lg:w-[28rem] h-70 lg:h-[28rem] dark:bg-n-2 p-8 sm:p-10 lg:p-16 border-b-4 border-n-1 z-10 transition-colors duration-400 shadow-2xl">
+          <div className="absolute -top-38 left-4 sm:left-6 lg:-top-15 lg:left-25 w-70 sm:w-96 lg:w-[25rem] h-55 lg:h-[20rem] dark:bg-n-2 p-8 sm:p-10 lg:p-16 border-b-4 border-n-1 z-10 transition-colors duration-400 shadow-2xl">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 lg:mb-10 text-n-6">
               <span>Contact Me.</span>
             </h2>
             
             <p className="text-black font-medium mb-6 lg:mb-8 text-base lg:text-lg">
-              I read comments. Respond to emails. Sometimes.
-            </p>
-            
-            <p className="text-n-1 text-sm lg:text-base mb-8">
-              PT2 I read comments. Respond to emails. Sometimes.
+              Always looking to make connections and work on new projects.
             </p>
             
             {/* Geometric Box */}

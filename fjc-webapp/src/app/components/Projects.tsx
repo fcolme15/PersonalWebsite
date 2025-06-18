@@ -1,5 +1,6 @@
 'use client'
 import { useState, useEffect, useRef } from 'react';
+import { projects } from '@/constants';
 
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(0);
@@ -35,72 +36,23 @@ const Projects = () => {
     };
   }, [hasAnimated]);
 
-  const projects = [
-    {
-      id: 1,
-      name: "VantageForm.com",
-      shortDescription: "Full-Stack ML Web App",
-      date: "June - Present",
-      link: "https://vantageform.com",
-      technologies: ["Next.js", "Python", "Node.js", "PostgreSQL", "Tailwind", "AWS"],
-      description: [
-        "Built a responsive and modern front end using Next.js and Tailwind, with dynamic routing.",
-        "Developed a scalable back end with Node.js, managing routing, server logic, and user interaction.",
-        "Designed and implemented a PostgreSQL database to store user data, player data, and metadata.",
-        "Developing Python-based API's to integrate machine learning model projections on AWS."
-      ]
-    },
-    {
-      id: 2,
-      name: "Taxi Rental Management System",
-      shortDescription: "Command-line rental system with database",
-      date: "May 2025",
-      link: "#",
-      technologies: ["Python", "PostgreSQL"],
-      description: [
-        "Developed a command-line rental system with an integrated PostgreSQL database.",
-        "Implemented manager manipulation, rental booking, reviews, and queries on relational tables."
-      ]
-    },
-    {
-      id: 3,
-      name: "Server-Client Based Three Card Poker",
-      shortDescription: "Multiplayer card game with networking",
-      date: "January 2024",
-      link: "#",
-      technologies: ["Java", "JavaFX", "Sockets", "Multithreading"],
-      description: [
-        "Developed a Java-based Three Card Poker game using a server-client architecture, implementing sockets and multithreading to support multiple simultaneous client games."
-      ]
-    },
-    {
-      id: 4,
-      name: "Custom Language Compiler (Bluejay)",
-      shortDescription: "Complete compiler implementation",
-      date: "December 2024",
-      link: "#",
-      technologies: ["C", "Flex", "Bison", "MIPS"],
-      description: [
-        "Created a compiler in C for a custom language implementing lexical analysis, parsing, abstract syntax trees, IR generation, and a MIPS-based backend."
-      ]
-    }
-  ];
+  
 
   return (
-    <section id="projects" className="min-h-screen scroll-mt-21" ref={sectionRef}>
+    <section id="projects" className="min-h-screen scroll-mt-18 lg:scroll-mt-21 overflow-hidden" ref={sectionRef}>
       {/* Desktop Layout */}
       <div className="hidden md:block bg-n-2 min-h-screen">
         {/* Title at the top for large screens */}
         <div className={`pt-8 pb-6 px-6 transition-all duration-1000 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'
         }`}>
-          <h1 className="text-4xl font-bold text-n-5 text-center mb-2 animate-fadeInUp">
+          <h1 className="text-6xl font-bold text-n-5 text-center mb-2 animate-fadeInUp">
             Projects
           </h1>
           <div className="w-24 h-1 bg-gradient-to-r from-n-5 to-n-4 mx-auto rounded-full"></div>
         </div>
 
-        <div className="flex px-6 pb-6 gap-6 h-[70vh]">
+        <div className="flex px-6 pb-6 gap-6 h-[75vh]">
           {/* Left Sidebar - Project List */}
           <div className={`w-1/3 space-y-4 transition-all duration-1000 delay-300 ${
             isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'
@@ -112,7 +64,7 @@ const Projects = () => {
                 className={`p-4 rounded-xl cursor-pointer transition-all duration-500 hover:shadow-lg hover:shadow-n-5/50 hover:scale-[1.02] transform ${
                   selectedProject === index
                     ? 'bg-n-5 text-white shadow-lg shadow-n-5/50 scale-[1.02]'
-                    : 'bg-n-6 text-black hover:bg-n-5/20'
+                    : 'bg-n-6 text-black hover:bg-n-2/20'
                 } animate-slideInUp`}
                 style={{
                   animationDelay: `${(index + 1) * 200}ms`,
@@ -137,7 +89,7 @@ const Projects = () => {
           </div>
 
           {/* Right Panel - Project Details */}
-          <div className={`w-2/3 bg-n-1 rounded-xl shadow-lg p-8 border-2 border-n-5 shadow-xl hover:shadow-2xl hover:shadow-n-5/30 transition-all duration-700 delay-500 ${
+          <div className={`w-2/3 bg-n-1 rounded-xl shadow-lg p-8 border-2 border-n-5 shadow-xl hover:shadow-2xl hover:shadow-n-5/30 transition-all duration-500 delay-300 ${
             isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'
           }`}>
             {projects[selectedProject] && (
@@ -170,7 +122,7 @@ const Projects = () => {
                   <h3 className={`text-lg font-semibold text-n-2 mb-3 transition-all duration-700 ${isVisible ? 'animate-slideInUp' : 'opacity-0'}`} style={{ animationDelay: isVisible ? '1000ms' : '0ms' }}>
                     Key Achievements
                   </h3>
-                  <ul className="space-y-2 max-h-48 overflow-y-auto scrollbar-hide">
+                  <ul className="space-y-2 overflow-y-auto scrollbar-hide">
                     {projects[selectedProject].description.map((point, index) => (
                       <li 
                         key={index} 
@@ -180,7 +132,7 @@ const Projects = () => {
                           animationFillMode: 'both'
                         }}
                       >
-                        <span className="text-lg font-bold text-n-5 mr-2 flex-shrink-0 mt-1">•</span>
+                        <span className="text-lg font-bold text-n-5 mr-2 flex-shrink-0 -mt-1">•</span>
                         <span className="text-n-6 leading-relaxed break-words text-sm">{point}</span>
                       </li>
                     ))}

@@ -3,16 +3,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { ScrollParallax } from "react-just-parallax";
 import { techstack } from '@/constants';
-
-interface Star {
-  id: number;
-  x: number;
-  y: number;
-  size: number;
-  opacity: number;
-  animationDelay: number;
-  animationDuration: number;
-}
+import Star from '@/components/Interfaces/Stars';
 
 const TechStack = () => {
   const [stars, setStars] = useState<Star[]>([]);
@@ -68,7 +59,7 @@ const TechStack = () => {
   }, [hasAnimated]);
 
   return (
-    <section ref={sectionRef} id="techstack" className="min-h-screen relative overflow-hidden scroll-mt-20 bg-n-2">
+    <section ref={sectionRef} id="techstack" className="min-h-screen relative overflow-hidden scroll-mt-18 lg:scroll-mt-21 bg-gradient-to-b from-n-5 via-n-5/80 to-n-2">
       
       {/* Animated Star Background */}
       <div className="absolute inset-0 overflow-hidden">
@@ -110,9 +101,8 @@ const TechStack = () => {
                     : 'opacity-0 translate-y-8'
                 }`}
               >
-                <h1 className="text-5xl md:text-6xl font-bold mb-6 text-black/90">
+                <h1 className="text-5xl md:text-6xl font-bold mb-6 text-white">
                   Tech Stack
-                  <span className="text-black/40">.</span>
                 </h1>
                 <div className="w-24 h-1 bg-gradient-to-r from-transparent via-white/30 to-transparent mx-auto"></div>
               </div>
@@ -126,7 +116,7 @@ const TechStack = () => {
                   strength={0.06}
                 >
                   <div
-                    className={`group relative overflow-hidden lg:max-h-70 bg-n-2 text-n-1 rounded-2xl p-8 border-2 border-n-5 transition-all duration-500 ease-out hover:scale-105 hover:-translate-y-2 hover:border-n-1 hover:text-n-5 ${
+                    className={`group relative overflow-hidden lg:max-h-70 bg-n-2 text-n-1 rounded-2xl p-8 border-2 border-n-5 transition-all duration-150 ease-out hover:scale-105 hover:-translate-y-2 hover:border-n-1 hover:text-n-5 ${
                       (index == 0 || index == 1 || index == 2) ? "lg:min-h-70" : ""
                     } ${
                       isVisible 
@@ -134,21 +124,14 @@ const TechStack = () => {
                         : 'opacity-0 translate-y-12 scale-95'
                     }`}
                     style={{
-                      transitionDelay: isVisible ? `${0.3 + index * 0.1}s` : '0s'
+                      transitionDelay: isVisible ? `${0.1 + index * 0.1}s` : '0s'
                     }}
                   >
-                    {/* Background glow effect */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    
-                    {/* Decorative corner elements */}
-                    <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-white/10 to-transparent rounded-bl-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    <div className="absolute bottom-0 left-0 w-16 h-16 bg-gradient-to-tr from-white/5 to-transparent rounded-tr-3xl"></div>
-
                     {/* Category Header */}
                     <div className="relative flex items-center gap-4 mb-8">
                       <div className="relative">
-                        <div className="absolute inset-0 bg-white/20 rounded-xl blur-sm group-hover:blur-none transition-all duration-300"></div>
-                        <div className="relative transform group-hover:scale-110 transition-transform duration-300">
+                        <div className="absolute inset-0 bg-white/20 rounded-xl blur-sm group-hover:blur-none transition-all duration-100"></div>
+                        <div className="relative transform group-hover:scale-110 transition-transform duration-100">
                           {category.icon}
                         </div>
                       </div>

@@ -2,17 +2,14 @@ import { useAnimations, useGLTF } from "@react-three/drei"
 import { useEffect, useRef } from "react"
 import { Group } from "three"
 
-useGLTF.preload("/football_balls_adidas_1k.glb")
+useGLTF.preload("/commodore64_computer_1k.glb")
 
 const Model = () => {
   const group = useRef<Group>(null)
-  const { scene, nodes, materials, animations } = useGLTF("/commodore64_computer_1k.glb")
-
-  const {actions, clips} = useAnimations(animations, scene)
-  console.log(actions) //No animations for adidas
+  const { scene } = useGLTF("/commodore64_computer_1k.glb")
 
   return (
-    <group ref={group} scale={[.4, .4, .4]}>
+    <group ref={group} scale={[.5, .5, .5]}>
       <primitive object={scene} />
     </group>
   )

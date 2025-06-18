@@ -12,18 +12,16 @@ function Loader (){
 
 function Scene() {
   return (
-    <Canvas gl={{ antialias: true}} dpr={[1, 1.5]}  camera={{ position: [2, 2, 4], fov: 50 }} className='relative '>
-      {/* <directionalLight position={[-10, 10, 5]} intensity={4} /> */}
-      <ambientLight intensity={4} />
+    <Canvas gl={{ antialias: true}} dpr={[1, 1.5]}  camera={{ position: [2, 2, 4], fov: 55 }} className='relative '>
+      
+      <ambientLight intensity={5} />
       <Suspense fallback={<Loader/>}>
-        {/* <ScrollControls damping={0.2} pages={2}> */}
         <Model />
-        {/* </ScrollControls> */}
         
       </Suspense>
       <OrbitControls 
-        enableZoom={false} 
-        enablePan={false}
+        enableZoom={true} 
+        enablePan={true}
         enableRotate={true} />
     </Canvas>
   )
