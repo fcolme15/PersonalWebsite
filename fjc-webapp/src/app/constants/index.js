@@ -24,8 +24,8 @@ export const navigation = [
     },
     {
       id: "3",
-      title: "experince",
-      url: "/#experience",
+      title: "Journey",
+      url: "/#journey",
     },
 
     

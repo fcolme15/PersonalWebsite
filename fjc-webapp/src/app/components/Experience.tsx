@@ -91,21 +91,8 @@ const CareerTimeline = () => {
     return () => clearTimeout(timer);
   }, [setupObservers]);
 
-  const getIconForType = (type: string) => {
-    switch (type) {
-      case 'project':
-        return '🚀';
-      case 'degree':
-        return '🎓';
-      case 'work':
-        return '💼';
-      default:
-        return '📚';
-    }
-  };
-
   return (
-    <section id="experience" className='overflow-hidden scroll-mt-18 lg:scroll-mt-21 '>
+    <section id="journey" className='overflow-hidden scroll-mt-18 lg:scroll-mt-21 '>
     <div className="min-h-screen bg-n-6 py-20 " ref={sectionRef}>
       <div className="container">
         <div className="text-center mb-16">
@@ -148,9 +135,6 @@ const CareerTimeline = () => {
                   {item.type === 'work' || item.type === 'education' ? (
                     <div className="bg-n-1 rounded-xl p-6 shadow-lg border border-n-2/20">
                       <div className="flex items-center mb-3">
-                        <span className="text-xl mr-3">
-                          {getIconForType(item.contentType)}
-                        </span>
                         <span className="text-xs text-n-2 uppercase tracking-wider bg-n-5/20 px-2 py-1 rounded-full">
                           {item.duration}
                         </span>
@@ -165,9 +149,6 @@ const CareerTimeline = () => {
                     <div className="bg-gradient-to-br from-n-6/80 to-n-3/80 rounded-lg p-4 shadow-md border border-n-2/20">
                       <div className="flex items-center justify-between">
                         <div className="flex items-center">
-                          <span className="text-lg mr-2">
-                            {getIconForType(item.contentType)}
-                          </span>
                           <div>
                             <h4 className="font-semibold text-n-1 text-sm">{item.title}</h4>
                             <p className="text-xs text-n-1/60">{item.institution}</p>
@@ -252,9 +233,6 @@ const CareerTimeline = () => {
                       >
                         <div className="bg-n-1 rounded-2xl p-8 shadow-xl border border-n-2/30 hover:shadow-2xl transition-all duration-200 hover:-translate-y-1">
                           <div className="flex items-center mb-4">
-                            <span className="text-2xl mr-3">
-                              {getIconForType(item.contentType)}
-                            </span>
                             <span className="text-xs text-n-2 uppercase tracking-wider">
                               {item.duration}
                             </span>
@@ -286,9 +264,6 @@ const CareerTimeline = () => {
                         <div className="bg-gradient-to-br from-n-6/80 to-n-3/80 rounded-xl p-4 shadow-lg border border-n-2/20 hover:shadow-xl transition-all duration-200">
                           <div className="flex items-center justify-between">
                             <div className="flex items-center">
-                              <span className="text-lg mr-2">
-                                {getIconForType(item.contentType)}
-                              </span>
                               <div>
                                 <h4 className="font-semibold text-n-1 text-sm">{item.title}</h4>
                                 <p className="text-xs text-n-1/60">{item.institution}</p>
@@ -306,7 +281,7 @@ const CareerTimeline = () => {
           </div>
 
           {/* Bottom Decorative Element */}
-          <div className={`absolute bottom-0 left-1/2 transform -translate-x-1/2 transition-all duration-700 delay-1000 ${
+          <div className={`absolute bottom-0 left-1/2 transform -translate-x-1/2 transition-all duration-700 delay-800 ${
             hasAnimated ? 'opacity-100 scale-100' : 'opacity-0 scale-0'
           }`}>
             <div className="w-6 h-6 bg-n-5 rounded-full shadow-lg"></div>
