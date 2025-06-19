@@ -45,7 +45,7 @@ const Nav = () => {
       <div className="flex bg-n-1 items-center px-5 lg:px-7.5 xl:px-10 max-lg:py-4">
         <Link className="block w-[12rem] xl:mr-8" href="/">
           <div className="flex items-center px-5 space-x-3">
-            <div className="shrink-0 w-10 h-10 rounded-full bg-n-3 border border-white flex items-center justify-center">
+            <div className="shrink-0 w-10 h-10 rounded-full bg-n-3 border border-n-3 flex items-center justify-center">
               <span className="text-[12px] font-bold leading-none text-black ">FJC.</span>
             </div>
             <h1 className="text-2xl lg:text-3xl font-bold text-n-3">FranciscoJC</h1>

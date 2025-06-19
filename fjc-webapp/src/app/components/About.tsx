@@ -60,9 +60,9 @@ const PortfolioLanding = () => {
             <div className="text-center mb-5 opacity-0 animate-fadeInUp">
               <h1 className="text-5xl md:text-7xl lg:text-7xl font-bold mb-4 text-white/90 tracking-tight">
                 <span className="inline-block animate-bounce">Hello,</span>{' '}
-                <span className="inline-block animate-bounce [animation-delay:0.2s]">I&apos;m</span>{' '}
+                <span className="inline-block animate-bounce [animation-delay:0.3s]">I&apos;m</span>{' '}
                 <br/>
-                <span className="inline-block animate-bounce bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent [animation-delay:0.4s]">
+                <span className="inline-block animate-bounce bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent [animation-delay:0.2s]">
                   Francisco Colmenero
                 </span>
               </h1>
