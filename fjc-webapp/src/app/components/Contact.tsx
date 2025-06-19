@@ -1,17 +1,48 @@
 'use client';
 
-import React, { useState, useRef } from 'react';
-
+import React, { useState, useRef, useEffect } from 'react';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const [message, setMessage] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const [hasAnimated, setHasAnimated] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
   const [formData, setFormData] = useState({
     user_name: '',
     user_email: '',
     user_subject: '',
     user_message: ''
   });
+
+  useEffect(() => {
+    // Intersection Observer for scroll-triggered animations
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasAnimated) {
+            setIsVisible(true);
+            setHasAnimated(true); // Prevent re-triggering
+          }
+        });
+      },
+      {
+        threshold: 0.2,
+        rootMargin: '0px 0px -50px 0px',
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, [hasAnimated]);
 
   const handleInputChange = (e: { target: { name: any; value: any; }; }) => {
     setFormData({
@@ -25,12 +56,15 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      // Replace with your actual EmailJS configuration
-      // await emailjs.send('service_i0aarzd','template_b15u8ip', formData, 'pm_wTSFE-1TAV2nN1');
+      // EmailJS configuration using environment variables
+      const result = await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        formData,
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+      );
       
-      // Simulated success for demo - remove this and uncomment above line
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
+      console.log('Email sent successfully:', result.text);
       setMessage('Message sent successfully!');
       setFormData({
         user_name: '',
@@ -43,7 +77,8 @@ const Contact = () => {
         setMessage('');
       }, 5000);
     } catch (error) {
-      setMessage('Failed to send message');
+      console.error('EmailJS error:', error);
+      setMessage('Failed to send message. Please try again.');
       setTimeout(() => {
         setMessage('');
       }, 5000);
@@ -55,13 +90,21 @@ const Contact = () => {
   return (
     <>
     <div></div>
-    <section className="contact pb-0 bg-n-5 pb-20 pt-65 md:pt-80 lg:pt-30 scroll-mt-18 lg:scroll-mt-21 overflow-hidden" id="contact">
+    <section ref={sectionRef} className="contact pb-0 bg-n-5 pb-20 pt-65 md:pt-80 lg:pt-30 scroll-mt-18 lg:scroll-mt-21 overflow-hidden" id="contact">
       <div className="container mx-auto px-4">
         
         <div className="relative max-w-6xl mx-auto">
           
-          {/* Contact Form Section - Background */}
-          <div className="relative bg-n-1 px-6 py-20 sm:py-16 text-white lg:ml-96 lg:px-12 lg:py-20 transition-colors duration-400 lg:max-w-2xl lg:ml-auto">
+          {/* Contact Form Section - Background - Fade in from Right */}
+          <div className={`relative bg-n-1 px-6 py-20 sm:py-16 text-white lg:ml-96 lg:px-12 lg:py-20 transition-all duration-1000 ease-out lg:max-w-2xl lg:ml-auto ${
+            isVisible 
+              ? 'opacity-100 translate-x-0' 
+              : 'opacity-0 translate-x-12'
+          }`}
+          style={{
+            animationDelay: isVisible ? '0.2s' : '0s',
+            animationFillMode: 'both'
+          }}>
             <h2 className="text-n-6 text-2xl font-bold mb-8 text-center lg:text-left">
               Send me a message
             </h2>
@@ -170,8 +213,16 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* Contact Data Section - Overlay */}
-          <div className="absolute -top-38 left-4 sm:left-6 lg:-top-15 lg:left-25 w-70 sm:w-96 lg:w-[25rem] h-55 lg:h-[20rem] dark:bg-n-2 p-8 sm:p-10 lg:p-16 border-b-4 border-n-1 z-10 transition-colors duration-400 shadow-2xl">
+          {/* Contact Data Section - Overlay - Fade in from Left */}
+          <div className={`absolute -top-38 left-4 sm:left-6 lg:-top-15 lg:left-25 w-70 sm:w-96 lg:w-[25rem] h-55 lg:h-[20rem] dark:bg-n-2 p-8 sm:p-10 lg:p-16 border-b-4 border-n-1 z-10 transition-all duration-1000 ease-out shadow-2xl ${
+            isVisible 
+              ? 'opacity-100 translate-x-0' 
+              : 'opacity-0 -translate-x-12'
+          }`}
+          style={{
+            animationDelay: isVisible ? '0s' : '0s',
+            animationFillMode: 'both'
+          }}>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 lg:mb-10 text-n-6">
               <span>Contact Me.</span>
             </h2>

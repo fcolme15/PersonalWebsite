@@ -116,22 +116,23 @@ const TechStack = () => {
                   strength={0.06}
                 >
                   <div
-                    className={`group relative overflow-hidden lg:max-h-70 bg-n-2 text-n-1 rounded-2xl p-8 border-2 border-n-5 transition-all duration-150 ease-out hover:scale-105 hover:-translate-y-2 hover:border-n-1 hover:text-n-5 ${
-                      (index == 0 || index == 1 || index == 2) ? "lg:min-h-70" : ""
+                    className={`group relative overflow-hidden lg:max-h-70 bg-n-2 text-n-1 rounded-2xl p-8 border-2 border-n-5 hover:scale-105 hover:-translate-y-2 hover:border-n-1 hover:text-n-5 duration-200 ${
+                      (index === 0 || index === 1 || index === 2) ? "lg:min-h-70" : ""
                     } ${
                       isVisible 
-                        ? 'opacity-100 translate-y-0 scale-100' 
+                        ? 'animate-card-enter opacity-100 translate-y-0 scale-100' 
                         : 'opacity-0 translate-y-12 scale-95'
                     }`}
                     style={{
-                      transitionDelay: isVisible ? `${0.1 + index * 0.1}s` : '0s'
+                      animationDelay: isVisible ? `${0.1 + index * 0.1}s` : '0s',
+                      animationFillMode: 'both'
                     }}
                   >
                     {/* Category Header */}
                     <div className="relative flex items-center gap-4 mb-8">
-                      <div className="relative">
-                        <div className="absolute inset-0 bg-white/20 rounded-xl blur-sm group-hover:blur-none transition-all duration-100"></div>
-                        <div className="relative transform group-hover:scale-110 transition-transform duration-100">
+                      <div className="relative transition-transform duration-100 group-hover:scale-110">
+                        <div className="absolute inset-0 bg-white/20 rounded-xl blur-sm group-hover:blur-none transition-all duration-200"></div>
+                        <div className="relative">
                           {category.icon}
                         </div>
                       </div>
@@ -163,6 +164,8 @@ const TechStack = () => {
           </div>
         </div>
       </div>
+
+
     </section>
   );
 };

@@ -48,6 +48,21 @@
   animation-fill-mode: both;
 }
 
+.animate-card-enter {
+  animation: cardEnter 1s ease-out forwards;
+}
+
+@keyframes cardEnter {
+  from {
+    opacity: 0;
+    transform: translateY(48px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
 @keyframes fadeInUp {
   from { 
     opacity: 0; 
