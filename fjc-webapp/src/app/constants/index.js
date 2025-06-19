@@ -1,6 +1,8 @@
-import XIcon from "@/assets/socials/twitter.svg";
+
 import instagramIcon from "@/assets/socials/instagram.svg";
-import facebookIcon from "@/assets/socials/facebook.svg";
+import resumeIcon from "@/assets/socials/resume.svg";
+import linkedinIcon from "@/assets/socials/linkedin.svg";
+import githubIcon from "@/assets/socials/github.svg";
 
 import { Code, Brain, Globe, Cloud, Database, GitBranch } from 'lucide-react';
 
@@ -204,22 +206,29 @@ export const timelineData = [
 
 export const socials = [
   {
-    id: "0",
-    title: "X",
-    iconUrl: XIcon,
-    url: "http://x.com",
-  },
-  {
     id: "1",
-    title: "Instagram",
-    iconUrl: instagramIcon,
-    url: "http://instagram.com",
+    title: "LinkedIn",
+    iconUrl: linkedinIcon,
+    url: "https://www.linkedin.com/in/colmenerojf/",
   },
   {
     id: "2",
-    title: "Facebook",
-    iconUrl: facebookIcon,
-    url: "http://facebook.com",
+    title: "Github",
+    iconUrl: githubIcon,
+    url: "https://github.com/fcolme15",
   },
+  {
+    id: "3",
+    title: "Instagram",
+    iconUrl: instagramIcon,
+    url: "https://www.instagram.com/francisco__colmenero",
+  },
+  {
+    id: "4",
+    title: "Resume",
+    iconUrl: resumeIcon,
+    url: "https://github.com/fcolme15/PersonalWebsite/blob/main/FranciscoJC-Resume.pdf",
+  },
+  
 ];
 
