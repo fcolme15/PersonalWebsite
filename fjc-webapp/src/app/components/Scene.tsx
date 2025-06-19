@@ -2,11 +2,11 @@
 
 import { Canvas } from '@react-three/fiber'
 import { Suspense } from 'react'
-import { Html, OrbitControls, ScrollControls, useProgress } from '@react-three/drei'
+import { Html, OrbitControls, useProgress } from '@react-three/drei'
 import Model from './Model'
 
 function Loader (){
-    const { progress, active } = useProgress()
+    const { progress } = useProgress()
     return <Html center>{progress.toFixed(1)} % loaded</Html>
 }
 

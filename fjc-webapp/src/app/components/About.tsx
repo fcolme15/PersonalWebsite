@@ -60,15 +60,12 @@ const PortfolioLanding = () => {
             <div className="text-center mb-5 opacity-0 animate-fadeInUp">
               <h1 className="text-5xl md:text-7xl lg:text-7xl font-bold mb-4 text-white/90 tracking-tight">
                 <span className="inline-block animate-bounce">Hello,</span>{' '}
-                <span className="inline-block animate-bounce [animation-delay:0.2s]">I'm</span>{' '}
+                <span className="inline-block animate-bounce [animation-delay:0.2s]">I&apos;m</span>{' '}
                 <br/>
                 <span className="inline-block animate-bounce bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent [animation-delay:0.4s]">
                   Francisco Colmenero
                 </span>
               </h1>
-              {/* <p className="text-xl md:text-2xl text-white/70 max-w-3xl mx-auto leading-relaxed opacity-0 animate-slideInUpDelayed">
-                Passionate about creating software
-              </p> */}
             </div>
 
             {/* Main Grid */}
@@ -105,7 +102,7 @@ const PortfolioLanding = () => {
                       </p>
 
                       <p className="text-lg md:text-xl text-white/80 leading-relaxed">
-                        Whether it's predicting player stats, optimizing performance, or automating decisions, I focus on <strong className="text-white">
+                        Whether it&apos;s predicting player stats, optimizing performance, or automating decisions, I focus on <strong className="text-white">
                           high-quality, high-impact work</strong>—the kind that moves the needle and holds up under pressure.
                       </p>
 

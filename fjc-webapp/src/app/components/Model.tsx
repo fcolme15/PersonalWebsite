@@ -1,5 +1,5 @@
-import { useAnimations, useGLTF } from "@react-three/drei"
-import { useEffect, useRef } from "react"
+import { useGLTF } from "@react-three/drei"
+import { useRef } from "react"
 import { Group } from "three"
 
 useGLTF.preload("/commodore64_computer_1k.glb")

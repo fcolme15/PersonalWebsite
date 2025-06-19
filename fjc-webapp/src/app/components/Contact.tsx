@@ -5,87 +5,80 @@ import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const [message, setMessage] = useState('');
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
-  const [hasAnimated, setHasAnimated] = useState(false);
-  const sectionRef = useRef<HTMLElement>(null);
-  const [formData, setFormData] = useState({
-    user_name: '',
-    user_email: '',
-    user_subject: '',
-    user_message: ''
-  });
+const [isSubmitting, setIsSubmitting] = useState(false);
+const [isVisible, setIsVisible] = useState(false);
+const [hasAnimated, setHasAnimated] = useState(false);
+const sectionRef = useRef<HTMLElement>(null);
+const [formData, setFormData] = useState({
+  user_name: '',
+  user_email: '',
+  user_subject: '',
+  user_message: ''
+});
 
-  useEffect(() => {
-    // Intersection Observer for scroll-triggered animations
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && !hasAnimated) {
-            setIsVisible(true);
-            setHasAnimated(true); // Prevent re-triggering
-          }
-        });
-      },
-      {
-        threshold: 0.2,
-        rootMargin: '0px 0px -50px 0px',
-      }
+useEffect(() => {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && !hasAnimated) {
+          setIsVisible(true);
+          setHasAnimated(true);
+        }
+      });
+    },
+    {
+      threshold: 0.2,
+      rootMargin: '0px 0px -50px 0px',
+    }
+  );
+
+  const currentSection = sectionRef.current;
+  if (currentSection) observer.observe(currentSection);
+
+  return () => {
+    if (currentSection) observer.unobserve(currentSection);
+  };
+}, [hasAnimated]);
+
+const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const { name, value } = e.target;
+  setFormData(prev => ({
+    ...prev,
+    [name]: value
+  }));
+};
+
+const sendEmail = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+  setIsSubmitting(true);
+
+  try {
+    const result = await emailjs.send(
+      process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+      process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+      formData,
+      process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
-  }, [hasAnimated]);
-
-  const handleInputChange = (e: { target: { name: any; value: any; }; }) => {
+    console.log('Email sent successfully:', result.text);
+    setMessage('Message sent successfully!');
     setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
+      user_name: '',
+      user_email: '',
+      user_subject: '',
+      user_message: ''
     });
-  };
 
-  const sendEmail = async (e: { preventDefault: () => void; }) => {
-    e.preventDefault();
-    setIsSubmitting(true);
+    setTimeout(() => setMessage(''), 5000);
+  } catch (error) {
+    console.error('EmailJS error:', error);
+    setMessage('Failed to send message. Please try again.');
+    setTimeout(() => setMessage(''), 5000);
+  } finally {
+    setIsSubmitting(false);
+  }
+};
 
-    try {
-      // EmailJS configuration using environment variables
-      const result = await emailjs.send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
-        formData,
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
-      );
-      
-      console.log('Email sent successfully:', result.text);
-      setMessage('Message sent successfully!');
-      setFormData({
-        user_name: '',
-        user_email: '',
-        user_subject: '',
-        user_message: ''
-      });
-      
-      setTimeout(() => {
-        setMessage('');
-      }, 5000);
-    } catch (error) {
-      console.error('EmailJS error:', error);
-      setMessage('Failed to send message. Please try again.');
-      setTimeout(() => {
-        setMessage('');
-      }, 5000);
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
 
   return (
     <>
@@ -110,7 +103,9 @@ const Contact = () => {
             </h2>
 
             <div className="grid gap-5 relative max-w-md mx-auto lg:max-w-full lg:mx-0">
+              <form onSubmit={sendEmail}>
               <div className="grid gap-5 sm:grid-cols-2 sm:gap-4">
+                
                 {/* First Name */}
                 <div className="relative w-full h-14">
                   <input
@@ -198,18 +193,18 @@ const Contact = () => {
                 </p>
               )}
 
-              {/* Submit Button */}
-              <button
-                type="button"
-                onClick={sendEmail}
-                disabled={isSubmitting}
-                className="bg-n-5 disabled:bg-black text-n-6 font-medium py-3 px-6 rounded-lg transition-colors duration-300 flex items-center justify-center gap-2 mt-4"
-              >
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
-                </svg>
-                {isSubmitting ? 'Sending...' : 'Send Message'}
-              </button>
+                {/* Submit Button */}
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="bg-n-5 disabled:bg-black text-n-6 font-medium py-3 px-6 rounded-lg transition-colors duration-300 flex items-center justify-center gap-2 mt-4"
+                >
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                  </svg>
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
+                </button>
+              </form>
             </div>
           </div>
 
