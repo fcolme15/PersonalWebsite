@@ -79,7 +79,7 @@ export const projects = [
     technologies: ["Next.js", "Python", "Node.js", "PostgreSQL", "Tailwind", "AWS"],
     description: [
       "Developed a responsive web app using Next.js and Tailwind CSS 4.0 with fully dynamic routes and modern UI transitions.",
-      "Engineered a Node.js back end with RESTful APIs and PostgreSQL for scalable user, session, and player data management.",
+      "Engineered a Node.js back end with PostgreSQL for scalable user, session, and player data management.",
       "Designing a deep learning model on AWS Lambda and EC2 for real-time stat prediction and inference.",
       "Implementing a flexible pipeline for integrating custom-trained ML models into production-ready endpoints.",
       "Implementing many ML model options for the user to choose",
@@ -152,7 +152,7 @@ export const timelineData = [
     title: 'Bachelor of Science in Computer Science',
     company: '',
     institution: 'University of Illinois at Chicago',
-    description: 'Graduated with a perfect 4.0/4.0 GPA. Focused on software engineering, algorithms, and system design with advanced coursework in computer science fundamentals.',
+    description: 'Graduated Summa Cum Laude with 4.0 GPA. Focused on software engineering, algorithms, and advanced coursework in computer science fundamentals to find my interest.',
     duration: 'Aug 2023 - May 2025',
     contentType: 'degree'
   },
@@ -185,7 +185,7 @@ export const timelineData = [
     title: 'Research Assistant',
     company: 'Joliet Junior College - Physics of Acoustics',
     institution: '',
-    description: 'Conducted research in the physics of acoustics, contributing to experimental design and data analysis. Collaborated with faculty on acoustic wave propagation studies.',
+    description: 'Conducted research in the Physics of Acoustics, contributing to experimental design and data analysis. Collaborated in a team analyzing a violins vavity nodes and how it affected the sound/vibrations.',
     duration: 'Jun 2023 - Aug 2023',
     contentType: 'work'
   },
@@ -197,7 +197,7 @@ export const timelineData = [
     title: 'Associate in Science',
     company: '',
     institution: 'Joliet Junior College',
-    description: 'Graduated with an exceptional 3.96/4.0 GPA. Built a strong foundation in mathematics, sciences, and computer science fundamentals.',
+    description: 'Graduated with a 3.96 GPA. Built a strong foundation in mathematics, sciences, and computer science fundamentals.',
     duration: 'Aug 2021 - May 2023',
     contentType: 'degree'
   },

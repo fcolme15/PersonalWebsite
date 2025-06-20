@@ -80,16 +80,13 @@ const TechStack = () => {
         ))}
       </div>
 
-      {/* Gradient Background */}
       <div className="min-h-screen relative">
-        {/* Gradient Overlay */}
+        {/* Gradient Overlay - Makes page distiguishable from the next aka not blend in */}
         <div className="absolute inset-0 bg-gradient-to-br from-transparent via-black/5 to-black/10"></div>
         
         {/* Floating geometric shapes */}
-        <div className="absolute top-20 left-10 w-20 h-20 border border-white/10 rounded-full animate-float"></div>
-        <div className="absolute top-40 right-20 w-16 h-16 border border-white/10 rotate-45 animate-float-delayed"></div>
-        <div className="absolute bottom-40 left-20 w-12 h-12 bg-white/5 rounded-lg animate-float-slow"></div>
-        <div className="absolute bottom-20 right-40 w-24 h-24 border border-white/10 rounded-lg rotate-12 animate-float-slower"></div>
+        <div className="absolute top-20 left-10 w-20 h-20 border border-white/30 rounded-full animate-float"></div>
+        <div className="absolute top-40 right-20 w-16 h-16 border border-white/30 rotate-45 animate-float"></div>
 
         <div className="relative z-10 text-white p-8 py-20">
           <div className="max-w-6xl mx-auto">
@@ -116,7 +113,7 @@ const TechStack = () => {
                   strength={0.06}
                 >
                   <div
-                    className={`group relative overflow-hidden lg:max-h-70 bg-n-2 text-n-1 rounded-2xl p-8 border-2 border-n-5 hover:scale-105 hover:-translate-y-2 hover:border-n-1 hover:text-n-5 duration-200 ${
+                    className={`group relative overflow-hidden lg:max-h-70 bg-n-2 text-n-1 rounded-2xl p-8 border-2 border-n-1 hover:scale-105 hover:-translate-y-2 hover:border-n-5 hover:text-n-5 duration-200 ${
                       (index === 0 || index === 1 || index === 2) ? "lg:min-h-70" : ""
                     } ${
                       isVisible 
@@ -131,7 +128,7 @@ const TechStack = () => {
                     {/* Category Header */}
                     <div className="relative flex items-center gap-4 mb-8">
                       <div className="relative transition-transform duration-100 group-hover:scale-110">
-                        <div className="absolute inset-0 bg-white/20 rounded-xl blur-sm group-hover:blur-none transition-all duration-200"></div>
+                        <div className="absolute inset-0 bg-white/20 rounded-xl blur-sm transition-all duration-200"></div>
                         <div className="relative">
                           {category.icon}
                         </div>
@@ -151,11 +148,6 @@ const TechStack = () => {
                           {tech}
                         </span>
                       ))}
-                    </div>
-
-                    {/* Animated border effect */}
-                    <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                      <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer"></div>
                     </div>
                   </div>
                 </ScrollParallax>

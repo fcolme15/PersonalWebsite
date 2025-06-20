@@ -5,11 +5,11 @@ import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const [message, setMessage] = useState('');
-const [isSubmitting, setIsSubmitting] = useState(false);
-const [isVisible, setIsVisible] = useState(false);
-const [hasAnimated, setHasAnimated] = useState(false);
-const sectionRef = useRef<HTMLElement>(null);
-const [formData, setFormData] = useState({
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const [hasAnimated, setHasAnimated] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+  const [formData, setFormData] = useState({
   user_name: '',
   user_email: '',
   user_subject: '',

@@ -96,20 +96,24 @@ const PortfolioLanding = () => {
                   <div className="space-y-6">
                     
                     <div className="space-y-4">
-                      <p className="text-lg md:text-xl text-white/80 leading-relaxed">
-                        I build intelligent systems that combine <strong className="text-white">creativity, code, and data </strong> 
-                        to solve real-world problems. From machine learning models to embedded microcontrollers, I love working at the intersection of software and systems.
-                      </p>
+                    <p className="text-lg md:text-xl text-white/80 leading-relaxed">
+                      I have a <strong className="text-white">passion for building projects</strong> that <strong className="text-white">boost efficiency</strong> and create real <strong className="text-white">impact</strong> in people&apos;s lives.
+                      I&apos;m especially interested in <strong className="text-white">AI and ML</strong>, and how they can be applied to areas I care about—like <strong className="text-white">sports</strong> and the<strong className="text-white"> automotive industry</strong>.
+                    </p>
 
-                      <p className="text-lg md:text-xl text-white/80 leading-relaxed">
-                        Whether it&apos;s predicting player stats, optimizing performance, or automating decisions, I focus on <strong className="text-white">
-                          high-quality, high-impact work</strong>—the kind that moves the needle and holds up under pressure.
-                      </p>
+                    <p className="text-lg md:text-xl text-white/80 leading-relaxed">
+                      I&apos;m currently exploring <strong className="text-white">AI models</strong> and the efficiency they can bring to different parts of the world.
+                      Always open to <strong className="text-white">new projects</strong> and love to <strong className="text-white">collaborate with others</strong> who share the same passion.
+                    </p>
 
-                      <p className="text-lg md:text-xl text-white/80 leading-relaxed">
-                        Off the keyboard, I draw inspiration from <strong className="text-white">soccer, motorsports, and endurance training</strong>—fields
-                        that demand precision, resilience, and constant iteration. That mindset fuels how I build and ship software.
-                      </p>
+                    <p className="text-lg md:text-xl text-white/80 leading-relaxed">
+                      Outside of programming, you&apos;ll usually find me on the <strong className="text-white">soccer field</strong> or following sports like <strong className="text-white">futbol</strong>, <strong className="text-white">football</strong>, <strong className="text-white">F1</strong>, and <strong className="text-white">basketball</strong>.
+                      I&apos;m always trying to merge my <strong className="text-white">technical skills</strong> with my <strong className="text-white">passions</strong> &amp; <strong className="text-white">hobbies</strong>.
+                    </p>
+
+
+
+
                     </div>
 
 

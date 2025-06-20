@@ -4,22 +4,24 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { timelineData } from '@/constants';
 
 const CareerTimeline = () => {
-  const [visibleItems, setVisibleItems] = useState(new Set());
+  const [visibleItems, setVisibleItems] = useState(new Set<number>());
   const [hasAnimated, setHasAnimated] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
   const observerRef = useRef<IntersectionObserver | null>(null);
   const sectionObserverRef = useRef<IntersectionObserver | null>(null);
+  const mutationObserverRef = useRef<MutationObserver | null>(null);
 
-  const setupObservers = useCallback(() => {
-    // Clean up existing observers
-    if (observerRef.current) {
-      observerRef.current.disconnect();
-    }
-    if (sectionObserverRef.current) {
-      sectionObserverRef.current.disconnect();
-    }
+  const observeTimelineItems = useCallback(() => {
+    const elements = document.querySelectorAll('[data-timeline-item]');
+    elements.forEach(el => {
+      if (observerRef.current && !observerRef.current.takeRecords().some(entry => entry.target === el)) {
+        observerRef.current.observe(el);
+      }
+    });
+  }, []);
 
-    // Create new intersection observer for timeline items
+  useEffect(() => {
+    // IntersectionObserver for timeline items visibility
     observerRef.current = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -27,18 +29,15 @@ const CareerTimeline = () => {
             const idAttr = entry.target.getAttribute('data-id');
             if (idAttr) {
               const id = parseInt(idAttr);
-              setVisibleItems(prev => new Set([...prev, id]));
+              setVisibleItems(prev => new Set(prev).add(id));
             }
           }
         });
       },
-      { 
-        threshold: 0.1,
-        rootMargin: '50px 0px 0px 0px'
-      }
+      { threshold: 0.1, rootMargin: '50px 0px 0px 0px' }
     );
 
-    // Create section observer for overall animation trigger
+    // IntersectionObserver for section animation trigger
     sectionObserverRef.current = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -47,49 +46,34 @@ const CareerTimeline = () => {
           }
         });
       },
-      {
-        threshold: 0.1,
-        rootMargin: '0px 0px -5% 0px',
-      }
+      { threshold: 0.1, rootMargin: '0px 0px -5% 0px' }
     );
 
-    // Observe section
+    // Observe section element
     if (sectionRef.current) {
       sectionObserverRef.current.observe(sectionRef.current);
     }
 
-    // Observe timeline items
-    const elements = document.querySelectorAll('[data-timeline-item]');
-    elements.forEach(el => {
-      if (observerRef.current) {
-        observerRef.current.observe(el);
-      }
+    // Initial observe timeline items
+    observeTimelineItems();
+
+    // MutationObserver to watch for added/removed timeline items dynamically
+    mutationObserverRef.current = new MutationObserver(() => {
+      observeTimelineItems();
     });
-  }, []);
 
-  useEffect(() => {
-    // Set up observers initially
-    setupObservers();
+    mutationObserverRef.current.observe(document.body, {
+      childList: true,
+      subtree: true,
+    });
 
-    // Clean up function
     return () => {
-      if (observerRef.current) {
-        observerRef.current.disconnect();
-      }
-      if (sectionObserverRef.current) {
-        sectionObserverRef.current.disconnect();
-      }
+      observerRef.current?.disconnect();
+      sectionObserverRef.current?.disconnect();
+      mutationObserverRef.current?.disconnect();
     };
-  }, [setupObservers]);
+  }, [observeTimelineItems]);
 
-  // Re-setup observers when component updates (to catch newly rendered elements)
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setupObservers();
-    }, 100);
-
-    return () => clearTimeout(timer);
-  }, [setupObservers]);
 
   return (
     <section id="journey" className='overflow-hidden scroll-mt-18 lg:scroll-mt-21 '>
@@ -280,7 +264,7 @@ const CareerTimeline = () => {
             ))}
           </div>
 
-          {/* Bottom Decorative Element */}
+          {/* Bottom circle on line */}
           <div className={`absolute bottom-0 left-1/2 transform -translate-x-1/2 transition-all duration-700 delay-800 ${
             hasAnimated ? 'opacity-100 scale-100' : 'opacity-0 scale-0'
           }`}>
