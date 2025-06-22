@@ -30,7 +30,7 @@ const PortfolioLanding = () => {
 
   return (
     <section id="about" className="w-full">
-      <div className="min-h-screen relative overflow-hidden bg-n-2 mt-10 scroll-mt-10 w-full">
+      <div className="min-h-screen relative overflow-hidden bg-n-2 mt-18 scroll-mt-18 w-full">
         {/* Animated Star Background */}
         <div className="absolute inset-0 overflow-hidden">
           {stars.map((star) => (
@@ -59,10 +59,10 @@ const PortfolioLanding = () => {
             {/* Hero Section */}
             <div className="text-center mb-8 sm:mb-12 lg:mb-16 animate-fadeInUp">
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 text-white tracking-tight leading-tight">
-                <span className="inline-block text-white/90">Hello,</span>{' '}
-                <span className="inline-block text-white/90">I&apos;m</span>{' '}
+                <span className="inline-block text-white/90 animate-bounce">Hello,</span>{' '}
+                <span className="inline-block text-white/90 animate-bounce [animation-delay:0.3s]">I&apos;m</span>{' '}
                 <br className="block" />
-                <span className="inline-block text-white font-bold break-words">
+                <span className="inline-block text-white font-bold break-words animate-bounce [animation-delay:0.2s]">
                   Francisco Colmenero
                 </span>
               </h1>
@@ -95,18 +95,19 @@ const PortfolioLanding = () => {
                   <div className="space-y-4 sm:space-y-6 w-full">
                     <div className="space-y-3 sm:space-y-4 w-full">
                       <p className="text-base sm:text-lg md:text-xl text-white/80 leading-relaxed break-words">
-                        I have a <strong className="text-white">passion for building projects</strong> that <strong className="text-white">boost efficiency</strong> and create real <strong className="text-white">impact</strong> in people&apos;s lives.
-                        I&apos;m especially interested in <strong className="text-white">AI and ML</strong>, and how they can be applied to areas I care about—like <strong className="text-white">sports</strong> and the <strong className="text-white">automotive industry</strong>.
+                        I have a <strong className="text-white">passion for building projects</strong> that create real <strong className="text-white">impact</strong> in people&apos;s lives.
+                        
                       </p>
 
                       <p className="text-base sm:text-lg md:text-xl text-white/80 leading-relaxed break-words">
-                        I&apos;m currently exploring <strong className="text-white">AI models</strong> and the efficiency they can bring to different parts of the world.
-                        Always open to <strong className="text-white">new projects</strong> and love to <strong className="text-white">collaborate with others</strong> who share the same passion.
+                        I&apos;m currently exploring <strong className="text-white">AI models</strong> and the efficiency they can bring to different parts of the world,
+                        especially to <strong className="text-white">Sports</strong> and the <strong className="text-white">Automotive Industry</strong>
                       </p>
 
                       <p className="text-base sm:text-lg md:text-xl text-white/80 leading-relaxed break-words">
-                        Outside of programming, you&apos;ll usually find me on the <strong className="text-white">soccer field</strong> or following sports like <strong className="text-white">futbol</strong>, <strong className="text-white">football</strong>, <strong className="text-white">F1</strong>, and <strong className="text-white">basketball</strong>.
-                        I&apos;m always trying to merge my <strong className="text-white">technical skills</strong> with my <strong className="text-white">passions</strong> &amp; <strong className="text-white">hobbies</strong>.
+                        Outside of programming, you&apos;ll usually find me on the <strong className="text-white">Soccer Pitch</strong> or following sports like <strong className="text-white">Futbol</strong>, 
+                        <strong className="text-white"> Football</strong>, <strong className="text-white">F1</strong>, and <strong className="text-white">Basketball</strong>.
+                        
                       </p>
                     </div>
                   </div>
