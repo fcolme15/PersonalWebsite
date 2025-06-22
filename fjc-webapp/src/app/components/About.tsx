@@ -30,7 +30,7 @@ const PortfolioLanding = () => {
 
   return (
     <section id="about" className="w-full">
-      <div className="min-h-screen relative overflow-hidden bg-n-2 mt-18 scroll-mt-18 w-full">
+      <div className="min-h-screen relative overflow-hidden bg-n-2 mt-10 scroll-mt-10 w-full">
         {/* Animated Star Background */}
         <div className="absolute inset-0 overflow-hidden">
           {stars.map((star) => (
@@ -57,12 +57,12 @@ const PortfolioLanding = () => {
         <div className="relative z-10 w-full px-4 py-8 sm:py-12 lg:py-16 xl:py-24">
           <div className="max-w-7xl mx-auto w-full">
             {/* Hero Section */}
-            <div className="text-center mb-8 sm:mb-12 lg:mb-16 opacity-0 animate-fadeInUp">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 text-white/90 tracking-tight leading-tight">
-                <span className="inline-block animate-bounce">Hello,</span>{' '}
-                <span className="inline-block animate-bounce [animation-delay:0.3s]">I&apos;m</span>{' '}
+            <div className="text-center mb-8 sm:mb-12 lg:mb-16 animate-fadeInUp">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 text-white tracking-tight leading-tight">
+                <span className="inline-block text-white/90">Hello,</span>{' '}
+                <span className="inline-block text-white/90">I&apos;m</span>{' '}
                 <br className="block" />
-                <span className="inline-block animate-bounce bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent [animation-delay:0.2s] break-words">
+                <span className="inline-block text-white font-bold break-words">
                   Francisco Colmenero
                 </span>
               </h1>

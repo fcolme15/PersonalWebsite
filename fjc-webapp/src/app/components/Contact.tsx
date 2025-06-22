@@ -209,7 +209,7 @@ const sendEmail = async (e: React.FormEvent<HTMLFormElement>) => {
           </div>
 
           {/* Contact Data Section - Overlay - Fade in from Left */}
-          <div className={`absolute -top-38 left-4 sm:left-6 lg:-top-15 lg:left-25 w-70 sm:w-96 lg:w-[25rem] h-55 lg:h-[20rem] dark:bg-n-2 p-8 sm:p-10 lg:p-16 border-b-4 border-n-1 z-10 transition-all duration-1000 ease-out shadow-2xl ${
+          <div className={`absolute -top-38 left-4 sm:left-6 lg:-top-15 lg:left-25 w-70 sm:w-96 lg:w-[25rem] h-55 lg:h-[20rem] bg-n-2 p-8 sm:p-10 lg:p-16 border-b-4 border-n-1 z-10 transition-all duration-1000 ease-out shadow-2xl ${
             isVisible 
               ? 'opacity-100 translate-x-0' 
               : 'opacity-0 -translate-x-12'

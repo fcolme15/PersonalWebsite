@@ -81,9 +81,6 @@ const TechStack = () => {
       </div>
 
       <div className="min-h-screen relative">
-        {/* Gradient Overlay - Makes page distiguishable from the next aka not blend in */}
-        <div className="absolute inset-0 bg-gradient-to-br from-transparent via-black/5 to-black/10"></div>
-        
         {/* Floating geometric shapes */}
         <div className="absolute top-20 left-10 w-20 h-20 border border-white/30 rounded-full animate-float"></div>
         <div className="absolute top-40 right-20 w-16 h-16 border border-white/30 rotate-45 animate-float"></div>
