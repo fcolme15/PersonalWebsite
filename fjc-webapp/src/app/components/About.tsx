@@ -29,8 +29,8 @@ const PortfolioLanding = () => {
   }, []);
 
   return (
-    <section id="about">
-      <div className="min-h-screen relative overflow-hidden bg-n-2 mt-10 scroll-mt-10">
+    <section id="about" className="w-full">
+      <div className="min-h-screen relative overflow-hidden bg-n-2 mt-18 scroll-mt-18 w-full">
         {/* Animated Star Background */}
         <div className="absolute inset-0 overflow-hidden">
           {stars.map((star) => (
@@ -54,25 +54,25 @@ const PortfolioLanding = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-transparent via-black/5 to-black/10"></div>
 
         {/* Main Content */}
-        <div className="relative z-10 container mx-auto px-4 py-16 lg:py-24">
-          <div className="max-w-7xl mx-auto">
+        <div className="relative z-10 w-full px-4 py-8 sm:py-12 lg:py-16 xl:py-24">
+          <div className="max-w-7xl mx-auto w-full">
             {/* Hero Section */}
-            <div className="text-center mb-5 opacity-0 animate-fadeInUp">
-              <h1 className="text-5xl md:text-7xl lg:text-7xl font-bold mb-4 text-white/90 tracking-tight">
+            <div className="text-center mb-8 sm:mb-12 lg:mb-16 opacity-0 animate-fadeInUp">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 text-white/90 tracking-tight leading-tight">
                 <span className="inline-block animate-bounce">Hello,</span>{' '}
                 <span className="inline-block animate-bounce [animation-delay:0.3s]">I&apos;m</span>{' '}
-                <br/>
-                <span className="inline-block animate-bounce bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent [animation-delay:0.2s]">
+                <br className="block" />
+                <span className="inline-block animate-bounce bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent [animation-delay:0.2s] break-words">
                   Francisco Colmenero
                 </span>
               </h1>
             </div>
 
             {/* Main Grid */}
-            <div className="grid lg:grid-cols-2 gap-10 lg:gap-8 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 xl:gap-12 items-center w-full">
               {/* 3D Scene Section */}
-              <div className="relative order-2 lg:order-1 opacity-0 animate-slideInLeft">
-                <div className="relative w-full lg:h-125 aspect-[4/3] overflow-hidden rounded-2xl shadow-2xl bg-black/20 backdrop-blur-sm border border-white/10">
+              <div className="relative order-2 lg:order-1 opacity-0 animate-slideInLeft w-full">
+                <div className="relative w-full h-64 sm:h-80 md:h-96 lg:h-[400px] xl:h-[500px] overflow-hidden rounded-2xl shadow-2xl bg-black/20 backdrop-blur-sm border border-white/10">
                   
                   {/* Scene Component */}
                   <Scene />
@@ -84,66 +84,56 @@ const PortfolioLanding = () => {
                 </div>
 
                 {/* Floating Elements In Corners */}
-                <div className="absolute -top-4 -right-4 w-8 h-8 bg-white/20 rounded-full animate-float"></div>
-                <div className="absolute -bottom-6 -left-6 w-12 h-12 bg-white/10 rounded-full animate-float-delayed"></div>
+                <div className="absolute -top-4 -right-4 w-6 h-6 sm:w-8 sm:h-8 bg-white/20 rounded-full animate-float"></div>
+                <div className="absolute -bottom-6 -left-6 w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-white/10 rounded-full animate-float-delayed"></div>
               </div>
 
-
               {/* Content Section */}
-              <div className="order-1 lg:order-2 opacity-0 animate-slideInRight">
-                <div className="space-y-8">
+              <div className="order-1 lg:order-2 opacity-0 animate-slideInRight w-full min-w-0">
+                <div className="space-y-6 sm:space-y-8 w-full">
                   {/* About Text */}
-                  <div className="space-y-6">
-                    
-                    <div className="space-y-4">
-                    <p className="text-lg md:text-xl text-white/80 leading-relaxed">
-                      I have a <strong className="text-white">passion for building projects</strong> that <strong className="text-white">boost efficiency</strong> and create real <strong className="text-white">impact</strong> in people&apos;s lives.
-                      I&apos;m especially interested in <strong className="text-white">AI and ML</strong>, and how they can be applied to areas I care about—like <strong className="text-white">sports</strong> and the<strong className="text-white"> automotive industry</strong>.
-                    </p>
+                  <div className="space-y-4 sm:space-y-6 w-full">
+                    <div className="space-y-3 sm:space-y-4 w-full">
+                      <p className="text-base sm:text-lg md:text-xl text-white/80 leading-relaxed break-words">
+                        I have a <strong className="text-white">passion for building projects</strong> that <strong className="text-white">boost efficiency</strong> and create real <strong className="text-white">impact</strong> in people&apos;s lives.
+                        I&apos;m especially interested in <strong className="text-white">AI and ML</strong>, and how they can be applied to areas I care about—like <strong className="text-white">sports</strong> and the <strong className="text-white">automotive industry</strong>.
+                      </p>
 
-                    <p className="text-lg md:text-xl text-white/80 leading-relaxed">
-                      I&apos;m currently exploring <strong className="text-white">AI models</strong> and the efficiency they can bring to different parts of the world.
-                      Always open to <strong className="text-white">new projects</strong> and love to <strong className="text-white">collaborate with others</strong> who share the same passion.
-                    </p>
+                      <p className="text-base sm:text-lg md:text-xl text-white/80 leading-relaxed break-words">
+                        I&apos;m currently exploring <strong className="text-white">AI models</strong> and the efficiency they can bring to different parts of the world.
+                        Always open to <strong className="text-white">new projects</strong> and love to <strong className="text-white">collaborate with others</strong> who share the same passion.
+                      </p>
 
-                    <p className="text-lg md:text-xl text-white/80 leading-relaxed">
-                      Outside of programming, you&apos;ll usually find me on the <strong className="text-white">soccer field</strong> or following sports like <strong className="text-white">futbol</strong>, <strong className="text-white">football</strong>, <strong className="text-white">F1</strong>, and <strong className="text-white">basketball</strong>.
-                      I&apos;m always trying to merge my <strong className="text-white">technical skills</strong> with my <strong className="text-white">passions</strong> &amp; <strong className="text-white">hobbies</strong>.
-                    </p>
-
-
-
-
+                      <p className="text-base sm:text-lg md:text-xl text-white/80 leading-relaxed break-words">
+                        Outside of programming, you&apos;ll usually find me on the <strong className="text-white">soccer field</strong> or following sports like <strong className="text-white">futbol</strong>, <strong className="text-white">football</strong>, <strong className="text-white">F1</strong>, and <strong className="text-white">basketball</strong>.
+                        I&apos;m always trying to merge my <strong className="text-white">technical skills</strong> with my <strong className="text-white">passions</strong> &amp; <strong className="text-white">hobbies</strong>.
+                      </p>
                     </div>
-
-
                   </div>
 
                   {/* Action Buttons */}
-                  <div className="flex flex-col sm:flex-row gap-4 pt-8 -mt-10">
+                  <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4 sm:pt-6 lg:pt-8 w-full">
                     {/* contact button */}
                     <a
                       href="#contact"
-                      className="group inline-flex items-center justify-center gap-3 bg-n-5 text-white hover:bg-n-6 hover:text-n-5 px-6 sm:px-8 py-3 sm:py-4 rounded-full transition-all duration-300 font-semibold text-base sm:text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 w-full sm:flex-initial"
+                      className="group inline-flex items-center justify-center gap-2 sm:gap-3 bg-n-5 text-white hover:bg-n-6 hover:text-n-5 px-4 sm:px-6 md:px-8 py-3 sm:py-4 rounded-full transition-all duration-300 font-semibold text-sm sm:text-base md:text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 w-full sm:w-auto sm:flex-initial min-w-0"
                     >
-                      <svg className="w-4 h-4 sm:w-5 sm:h-5 transition-transform group-hover:translate-x-1" fill="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-4 h-4 sm:w-5 sm:h-5 transition-transform group-hover:translate-x-1 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
                       </svg>
-                      <p className='items-center'>
-                        Contact Me
-                      </p>
+                      <span className="truncate">Contact Me</span>
                     </a>
 
                     {/* Social buttons container */}
-                    <div className="flex flex-row gap-4 justify-center sm:justify-start">
+                    <div className="flex flex-row gap-2 sm:gap-3 md:gap-4 justify-center sm:justify-start flex-wrap">
                       {/* linkedIn button */}
                       <a
                         href="https://www.linkedin.com/in/colmenerojf/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 bg-n-5 text-white hover:bg-n-6 hover:text-n-5 backdrop-blur-sm border border-white/20  rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex-shrink-0"
+                        className="group inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 bg-n-5 text-white hover:bg-n-6 hover:text-n-5 backdrop-blur-sm border border-white/20 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex-shrink-0"
                       >
-                        <svg className="w-5 h-5 sm:w-7 sm:h-7 transition-transform group-hover:scale-110" fill="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 transition-transform group-hover:scale-110" fill="currentColor" viewBox="0 0 24 24">
                           <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
                         </svg>
                       </a>
@@ -153,10 +143,10 @@ const PortfolioLanding = () => {
                         href="https://github.com/fcolme15"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 bg-n-5 text-white hover:bg-n-6 hover:text-n-5 backdrop-blur-sm border border-white/20 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex-shrink-0"
+                        className="group inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 bg-n-5 text-white hover:bg-n-6 hover:text-n-5 backdrop-blur-sm border border-white/20 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex-shrink-0"
                       >
                         <svg
-                          className="w-5 h-5 sm:w-7 sm:h-7 transition-transform group-hover:scale-110"
+                          className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 transition-transform group-hover:scale-110"
                           fill="currentColor"
                           viewBox="0 0 24 24"
                         >
@@ -169,10 +159,10 @@ const PortfolioLanding = () => {
                         href="https://instagram.com/francisco__colmenero"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 bg-n-5 text-white hover:bg-n-6 hover:text-n-5 backdrop-blur-sm border border-white/20 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex-shrink-0"
+                        className="group inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 bg-n-5 text-white hover:bg-n-6 hover:text-n-5 backdrop-blur-sm border border-white/20 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex-shrink-0"
                       >
                         <svg
-                          className="w-5 h-5 sm:w-7 sm:h-7 transition-transform group-hover:scale-110"
+                          className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 transition-transform group-hover:scale-110"
                           fill="currentColor"
                           viewBox="0 0 24 24"
                         >
@@ -185,10 +175,10 @@ const PortfolioLanding = () => {
                         href="https://github.com/fcolme15/PersonalWebsite/blob/main/FranciscoJC-Resume.pdf"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 bg-n-5 text-white hover:bg-n-6 hover:text-n-5 backdrop-blur-sm border border-white/20 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex-shrink-0"
+                        className="group inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 bg-n-5 text-white hover:bg-n-6 hover:text-n-5 backdrop-blur-sm border border-white/20 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex-shrink-0"
                       >
                         <svg
-                          className="w-5 h-5 sm:w-7 sm:h-7 transition-transform group-hover:scale-110"
+                          className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 transition-transform group-hover:scale-110"
                           fill="currentColor"
                           viewBox="0 0 24 24"
                         >
