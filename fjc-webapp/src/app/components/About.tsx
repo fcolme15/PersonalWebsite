@@ -11,6 +11,7 @@ const PortfolioLanding = () => {
     // Generate random stars
     const generateStars = () => {
       const starArray = [];
+
       for (let i = 0; i < 150; i++) {
         starArray.push({
           id: i,
